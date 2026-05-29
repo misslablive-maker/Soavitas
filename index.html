@@ -334,7 +334,12 @@ nav {
   align-items: flex-start;
   gap: 1rem;
   cursor: pointer;
+  transition: opacity 0.2s;
+  -webkit-tap-highlight-color: rgba(184,146,74,0.1);
 }
+.s-card:active { opacity: 0.7; }
+.s-card:hover .s-card-arrow { transform: translateX(4px); }
+.s-card-arrow { transition: transform 0.2s; }
 .s-card:last-child { border-bottom: 1px solid rgba(17,17,16,0.1); }
 .s-card-num {
   font-family: 'Libre Baskerville', serif;
@@ -680,12 +685,12 @@ footer {
   <h2 class="section-heading">Di cosa ha<br><em>bisogno</em> Lei<br>o chi ama?</h2>
   <p class="section-sub">Ognuno arriva con una storia diversa. Ci dica la Sua.</p>
 
-  <div class="s-card"><span class="s-card-num">01</span><div><h4>Ho bisogno di prestazioni immediate</h4><p>Medicazioni, rimozione punti, catetere, infusioni, monitoraggio — prenoti direttamente.</p></div><span class="s-card-arrow">›</span></div>
-  <div class="s-card"><span class="s-card-num">02</span><div><h4>Non sa ancora di cosa ha bisogno</h4><p>Ci racconti la Sua situazione. <a href="#">Informazioni e preventivo gratuiti</a> — senza impegno.</p></div><span class="s-card-arrow">›</span></div>
-  <div class="s-card"><span class="s-card-num">03</span><div><h4>Ha un intervento in programma</h4><p>Desidera prepararsi con un'infermiera dedicata prima e dopo l'operazione.</p></div><span class="s-card-arrow">›</span></div>
-  <div class="s-card"><span class="s-card-num">04</span><div><h4>Ha appena avuto un intervento</h4><p>È a casa e desidera assistenza qualificata: medicazioni, monitoraggio, supporto.</p></div><span class="s-card-arrow">›</span></div>
-  <div class="s-card"><span class="s-card-num">05</span><div><h4>Gestisce una terapia complessa</h4><p>Ha bisogno di qualcuno che organizzi farmaci, esami e prescrizioni con precisione.</p></div><span class="s-card-arrow">›</span></div>
-  <div class="s-card"><span class="s-card-num">06</span><div><h4>Si sente solo nel percorso di cura</h4><p>Desidera una presenza professionale che La accompagni in ogni momento.</p></div><span class="s-card-arrow">›</span></div>
+  <div class="s-card" onclick="window.open('https://soavitasagenda.as.me/?appointmentType=category:Disponibilit%C3%A0%20Prestazioni%20Infermieristiche','_blank')"><span class="s-card-num">01</span><div><h4>Ho bisogno di prestazioni immediate</h4><p>Medicazioni, rimozione punti, catetere, infusioni, monitoraggio — prenoti direttamente.</p></div><span class="s-card-arrow">›</span></div>
+  <div class="s-card" onclick="window.open('https://www.soavitasconciergenursing.com/richiesta-informazioni','_blank')"><span class="s-card-num">02</span><div><h4>Non sa ancora di cosa ha bisogno</h4><p>Ci racconti la Sua situazione. <a href="https://www.soavitasconciergenursing.com/richiesta-informazioni" target="_blank">Informazioni e preventivo gratuiti</a> — senza impegno.</p></div><span class="s-card-arrow">›</span></div>
+  <div class="s-card" onclick="window.open('https://soavitasagenda.as.me/Pre-op','_blank')"><span class="s-card-num">03</span><div><h4>Ha un intervento in programma</h4><p>Desidera prepararsi con un'infermiera dedicata prima e dopo l'operazione.</p></div><span class="s-card-arrow">›</span></div>
+  <div class="s-card" onclick="window.open('https://soavitasagenda.as.me/?appointmentType=category:Consulenze%20','_blank')"><span class="s-card-num">04</span><div><h4>Ha appena avuto un intervento</h4><p>È a casa e desidera assistenza qualificata: medicazioni, monitoraggio, supporto.</p></div><span class="s-card-arrow">›</span></div>
+  <div class="s-card" onclick="window.open('https://soavitasagenda.as.me/PianiTerapeutici','_blank')"><span class="s-card-num">05</span><div><h4>Gestisce una terapia complessa</h4><p>Ha bisogno di qualcuno che organizzi farmaci, esami e prescrizioni con precisione.</p></div><span class="s-card-arrow">›</span></div>
+  <div class="s-card" onclick="window.open('https://soavitasagenda.as.me/ClinicalAdvocacy','_blank')"><span class="s-card-num">06</span><div><h4>Si sente solo nel percorso di cura</h4><p>Desidera una presenza professionale che La accompagni in ogni momento.</p></div><span class="s-card-arrow">›</span></div>
 </section>
 
 <!-- PRESTAZIONI -->
@@ -694,11 +699,11 @@ footer {
   <h2 class="section-heading" style="margin-bottom:0.5rem;">Le <em>prestazioni</em></h2>
   <p class="section-sub" style="margin-bottom:1.8rem;">Scelga ciò di cui ha bisogno. Pensiamo a tutto il resto.</p>
 
-  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">Prestazioni infermieristiche<span class="plus">+</span></button><div class="acc-body">Medicazioni, infusioni, rimozione punti, monitoraggio, iniezioni. Eseguiti con la stessa competenza clinica, nel Suo ambiente e nei Suoi tempi.</div></div>
-  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">Clinical Advocacy<span class="plus">+</span></button><div class="acc-body">Quando si entra in un sistema sanitario complesso, è facile sentirsi soli. L'advocacy è una presenza concreta: durante le visite, i ricoveri, le dimissioni. Qualcuno che capisce il linguaggio medico, fa le domande giuste e si assicura che le Sue priorità vengano ascoltate. Non un accompagnatore, un alleato clinico.</div></div>
-  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">Piani Terapeutici Personalizzati<span class="plus">+</span></button><div class="acc-body">Quando si seguono più specialisti, il rischio è che ognuno lavori nel proprio compartimento. Costruiamo una visione unica: farmaci verificati, esami senza doppioni, follow-up coordinati. Un piano scritto, chiaro, aggiornato. Qualcuno che tiene il filo.</div></div>
-  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">In viaggio con Soavitas<span class="plus">+</span></button><div class="acc-body">Che si tratti di un viaggio per cure, di una vacanza con esigenze mediche o del desiderio di partire senza ansie — Soavitas viaggia con Lei. Italia, Europa, oltre. La stessa infermiera che La conosce, anche lontano da casa.</div></div>
-  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">Per medici e strutture<span class="plus">+</span></button><div class="acc-body">Collaboriamo con medici e strutture private che cercano un riferimento infermieristico per i loro pazienti fuori orario. Discrezione, puntualità, aggiornamenti regolari. Un prolungamento silenzioso del loro team.</div></div>
+  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">Prestazioni infermieristiche<span class="plus">+</span></button><div class="acc-body">Medicazioni, infusioni, rimozione punti, monitoraggio, iniezioni. Eseguiti con la stessa competenza clinica, nel Suo ambiente e nei Suoi tempi. <a href="https://soavitasagenda.as.me/Rimozionepunti" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Rimozione punti</a> &middot; <a href="https://soavitasagenda.as.me/Medicazionesemplice" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Medicazione semplice</a> &middot; <a href="https://soavitasagenda.as.me/Medicazionecomplessa" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Medicazione complessa</a> &middot; <a href="https://soavitasagenda.as.me/Cateterevescicale" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Catetere vescicale</a> &middot; <a href="https://soavitasagenda.as.me/Infusioni" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Infusioni</a> &middot; <a href="https://soavitasagenda.as.me/Monitoraggio" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Monitoraggio</a>.</div></div>
+  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">Clinical Advocacy<span class="plus">+</span></button><div class="acc-body">Quando si entra in un sistema sanitario complesso, è facile sentirsi soli. L'advocacy è una presenza concreta: durante le visite, i ricoveri, le dimissioni. Qualcuno che capisce il linguaggio medico, fa le domande giuste e si assicura che le Sue priorità vengano ascoltate. Non un accompagnatore, un alleato clinico. <a href="https://soavitasagenda.as.me/ClinicalAdvocacy" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Prenoti una consulenza advocacy</a>.</div></div>
+  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">Piani Terapeutici Personalizzati<span class="plus">+</span></button><div class="acc-body">Quando si seguono più specialisti, il rischio è che ognuno lavori nel proprio compartimento. Costruiamo una visione unica: farmaci verificati, esami senza doppioni, follow-up coordinati. Un piano scritto, chiaro, aggiornato. Qualcuno che tiene il filo. <a href="https://soavitasagenda.as.me/PianiTerapeutici" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Prenoti</a>.</div></div>
+  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">In viaggio con Soavitas<span class="plus">+</span></button><div class="acc-body">Che si tratti di un viaggio per cure, di una vacanza con esigenze mediche o del desiderio di partire senza ansie — Soavitas viaggia con Lei. Italia, Europa, oltre. La stessa infermiera che La conosce, anche lontano da casa. <a href="https://soavitasagenda.as.me/InViaggio" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Prenoti</a>.</div></div>
+  <div class="acc-item"><button class="acc-btn" onclick="toggleAcc(this)">Per medici e strutture<span class="plus">+</span></button><div class="acc-body">Collaboriamo con medici e strutture private che cercano un riferimento infermieristico per i loro pazienti fuori orario. Discrezione, puntualità, aggiornamenti regolari. Un prolungamento silenzioso del loro team. <a href="https://soavitasagenda.as.me/Medici" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,146,74,0.4);">Prenoti</a>.</div></div>
 </section>
 
 <!-- DOVE OPERIAMO -->
@@ -734,9 +739,9 @@ footer {
 
 <!-- CTA -->
 <section class="section-cta">
-  <a href="mailto:info@soavitasconciergenursing.it" class="btn-p">Prenoti una consulenza</a>
-  <a href="mailto:info@soavitasconciergenursing.it" class="btn-s">Scriva direttamente a noi</a>
-  <a href="https://soavitasconciergenursing.com" class="btn-s" target="_blank">Visiti il nostro sito</a>
+  <a href="mailto:info@soavitasconciergenursing.it" target="_blank" class="btn-p">Prenoti una consulenza</a>
+  <a href="mailto:info@soavitasconciergenursing.it" target="_blank" class="btn-s">Scriva direttamente a noi</a>
+  <a href="https://www.soavitasconciergenursing.com" target="_blank" class="btn-s" target="_blank">Visiti il nostro sito</a>
 </section>
 
 <!-- FOOTER -->
@@ -749,10 +754,10 @@ footer {
     </div>
   </div>
   <ul class="footer-links">
-    <li><a href="https://soavitasconciergenursing.com">soavitasconciergenursing.com</a></li>
-    <li><a href="mailto:info@soavitasconciergenursing.it">info@soavitasconciergenursing.it</a></li>
-    <li><a href="https://instagram.com/soavitas.nursing" target="_blank">@soavitas.nursing</a></li>
-    <li><a href="#">Informativa sulla privacy</a></li>
+    <li><a href="https://www.soavitasconciergenursing.com" target="_blank">soavitasconciergenursing.com</a></li>
+    <li><a href="mailto:info@soavitasconciergenursing.it" target="_blank">info@soavitasconciergenursing.it</a></li>
+    <li><a href="https://www.instagram.com/soavitas.nursing/" target="_blank" target="_blank">@soavitas.nursing</a></li>
+    <li><a href="https://www.soavitasconciergenursing.com/informativa-sulla-privacy" target="_blank">Informativa sulla privacy</a></li>
   </ul>
   <p class="footer-copy">Prendersi cura è il gesto più profondo che esista.</p>
 </footer>

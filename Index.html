@@ -1,0 +1,442 @@
+# <!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Soavitas | Concierge Nursing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #FFFFFF !important;
+    color: #00000F !important;
+    font-family: 'Lato', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background-color: #420420 !important;
+    padding: 1rem 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #A8865A;
+  }
+  .topbar-logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: #FFFFFF !important;
+    letter-spacing: 0.04em;
+  }
+  .topbar-lang {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    color: #C9A87A !important;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background-color: #FFFFFF !important;
+    padding: 2.5rem 1.75rem 2rem;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .hero-pretitle {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #A8865A !important;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .hero-pretitle::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #A8865A;
+    flex-shrink: 0;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.15;
+    color: #00000F !important;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.2s;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: #420420 !important;
+  }
+  .hero-sub {
+    font-size: 1rem;
+    color: #222222 !important;
+    line-height: 1.8;
+    margin-bottom: 1.75rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.4s;
+  }
+  .hero-guarantee {
+    background-color: #F9F6F2 !important;
+    border-left: 3px solid #420420;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.82rem;
+    color: #111111 !important;
+    line-height: 1.6;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.55s;
+  }
+  .hero-guarantee strong {
+    color: #420420 !important;
+    font-weight: 700;
+  }
+
+  /* ── QUESTION ── */
+  .question {
+    background-color: #FFFFFF !important;
+    padding: 2.5rem 1.75rem 0;
+  }
+  .question-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #A8865A !important;
+    margin-bottom: 0.6rem;
+  }
+  .question-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.85rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #00000F !important;
+    margin-bottom: 0.6rem;
+  }
+  .question-title em { font-style: italic; color: #420420 !important; }
+  .question-sub {
+    font-size: 0.95rem;
+    color: #333333 !important;
+    line-height: 1.75;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ── CARDS ── */
+  .cards { display: flex; flex-direction: column; }
+
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1rem 1.4rem 0;
+    border-bottom: 1px solid #E0E0E0;
+    text-decoration: none;
+    background-color: #FFFFFF !important;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    position: relative;
+  }
+  .card:first-child { border-top: 1px solid #E0E0E0; }
+  .card:active { background-color: #FDF5F0 !important; }
+
+  .card-left {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background-color: #420420 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-left span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #FFFFFF !important;
+  }
+  .card-body { flex: 1; }
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #00000F !important;
+    line-height: 1.3;
+    margin-bottom: 0.2rem;
+  }
+  .card-desc {
+    font-size: 0.85rem;
+    color: #444444 !important;
+    line-height: 1.65;
+  }
+  .card-arrow {
+    color: #420420 !important;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  /* ── PROMISE ── */
+  .promise {
+    background-color: #F9F6F2 !important;
+    margin: 2rem 1.75rem;
+    padding: 1.75rem;
+    border-top: 3px solid #420420;
+  }
+  .promise-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #00000F !important;
+    margin-bottom: 0.85rem;
+  }
+  .promise-detail {
+    font-size: 0.88rem;
+    color: #333333 !important;
+    line-height: 1.8;
+  }
+  .promise-detail strong {
+    color: #420420 !important;
+    font-weight: 700;
+  }
+
+  /* ── CTA ── */
+  .cta-wrap {
+    padding: 0 1.75rem 2.5rem;
+    background-color: #FFFFFF !important;
+  }
+  .cta-primary {
+    display: block;
+    width: 100%;
+    background-color: #420420 !important;
+    color: #FFFFFF !important;
+    text-align: center;
+    padding: 1.2rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+  }
+  .cta-secondary {
+    display: block;
+    width: 100%;
+    background-color: #FFFFFF !important;
+    color: #420420 !important;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid #420420;
+    cursor: pointer;
+  }
+
+  /* ── PILLARS ── */
+  .pillars {
+    background-color: #420420 !important;
+    padding: 2.5rem 1.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.5rem;
+    border-top: 3px solid #A8865A;
+  }
+  .pillar-val {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: #A8865A !important;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .pillar-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF !important;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background-color: #F9F6F2 !important;
+    padding: 2rem 1.75rem 3rem;
+    border-top: 1px solid #E0E0E0;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: #420420 !important;
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .footer-links a {
+    font-size: 0.85rem;
+    color: #333333 !important;
+    text-decoration: none;
+  }
+  .footer-note {
+    font-size: 0.75rem;
+    color: #555555 !important;
+    line-height: 1.8;
+    padding-top: 1.25rem;
+    border-top: 1px solid #E0E0E0;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-logo">Soavitas</span>
+  <span class="topbar-lang">IT · EN · FR</span>
+</div>
+
+<section class="hero">
+  <div class="hero-pretitle">Assistenza infermieristica privata</div>
+  <h1 class="hero-title">
+    La cura che<br><em>merita,</em><br>ovunque Lei sia.
+  </h1>
+  <p class="hero-sub">
+    Infermieri privati al Suo fianco — a casa Sua, in hotel, in villa. Discrezione, competenza e continuità in ogni fase del percorso.
+  </p>
+  <div class="hero-guarantee">
+    <strong>Risposta garantita entro 24 ore.</strong><br>
+    Preventivo personalizzato. Solo su appuntamento.
+  </div>
+</section>
+
+<section class="question">
+  <div class="question-label">La Sua situazione</div>
+  <h2 class="question-title">Di cosa ha<br><em>bisogno</em> oggi?</h2>
+  <p class="question-sub">Scelga la situazione che La descrive. La guideremo verso il percorso più adatto, senza perdere tempo.</p>
+
+  <div class="cards">
+
+    <a href="https://soavitasagenda.as.me/Pre-op" class="card">
+      <div class="card-left"><span>I</span></div>
+      <div class="card-body">
+        <div class="card-title">Ha un intervento in programma</div>
+        <div class="card-desc">Vuole prepararsi con un'infermiera dedicata prima e dopo l'operazione.</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="https://soavitasagenda.as.me/introduttiva" class="card">
+      <div class="card-left"><span>II</span></div>
+      <div class="card-body">
+        <div class="card-title">Ha appena avuto un intervento</div>
+        <div class="card-desc">È a casa e desidera assistenza qualificata: medicazioni, monitoraggio, supporto.</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="https://soavitasagenda.as.me/PianiTerapeutici" class="card">
+      <div class="card-left"><span>III</span></div>
+      <div class="card-body">
+        <div class="card-title">Gestisce una terapia complessa</div>
+        <div class="card-desc">Ha bisogno di qualcuno che organizzi farmaci, esami e prescrizioni.</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="https://soavitasagenda.as.me/ClinicalAdvocacy" class="card">
+      <div class="card-left"><span>IV</span></div>
+      <div class="card-body">
+        <div class="card-title">Si sente solo nel percorso di cura</div>
+        <div class="card-desc">Desidera una presenza professionale che La accompagni e La rappresenti.</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="https://www.soavitasconciergenursing.com/richiesta-informazioni" class="card">
+      <div class="card-left"><span>V</span></div>
+      <div class="card-body">
+        <div class="card-title">Non sa ancora di cosa ha bisogno</div>
+        <div class="card-desc">Ci racconti la Sua situazione. Capiremo insieme il percorso giusto.</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+  </div>
+</section>
+
+<div class="promise">
+  <p class="promise-quote">"Non sparisce nessuno. Sempre la stessa persona, sempre preparata sulle Sue priorità."</p>
+  <p class="promise-detail">
+    Assistenza a domicilio, in hotel e in villa.<br>
+    <strong>Preventivo personalizzato entro 24 ore.</strong>
+  </p>
+</div>
+
+<div class="cta-wrap">
+  <a href="https://www.soavitasconciergenursing.com/prenota-consulenza-servizi" class="cta-primary">
+    Prenoti una consulenza
+  </a>
+  <a href="mailto:info@soavitasconciergenursing.it" class="cta-secondary">
+    Scriva direttamente a noi
+  </a>
+</div>
+
+<div class="pillars">
+  <div>
+    <div class="pillar-val">24h</div>
+    <div class="pillar-label">Risposta e preventivo garantiti</div>
+  </div>
+  <div>
+    <div class="pillar-val">3</div>
+    <div class="pillar-label">Lingue: italiano, inglese, francese</div>
+  </div>
+  <div>
+    <div class="pillar-val">◯</div>
+    <div class="pillar-label">Solo su appuntamento</div>
+  </div>
+  <div>
+    <div class="pillar-val">∞</div>
+    <div class="pillar-label">Stessa infermiera, sempre</div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">Soavitas</span>
+  <div class="footer-links">
+    <a href="https://www.soavitasconciergenursing.com">soavitasconciergenursing.com</a>
+    <a href="mailto:info@soavitasconciergenursing.it">info@soavitasconciergenursing.it</a>
+    <a href="https://www.instagram.com/soavitas.nursing/">@soavitas.nursing</a>
+    <a href="https://www.soavitasconciergenursing.com/informativa-sulla-privacy">Informativa sulla privacy</a>
+  </div>
+  <p class="footer-note">
+    Assistenza infermieristica privata · Solo su appuntamento<br>
+    Accoglienza in Italiano, Inglese e Francese
+  </p>
+</footer>
+
+</body>
+</html>
